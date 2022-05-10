@@ -1,0 +1,191 @@
+/* Set's website flow as a flexbox column, line height is 1.3 */
+body {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.3;
+}
+
+/* Flexbox orientation for title/nav bar */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1%;
+  background-color: #13293d;
+  color: #fff;
+}
+
+h1 {
+  font-size: 200%;
+}
+
+/* Margin 2% top & bottom, no left right */
+h2 {
+  margin: 2% 0;
+  font-size: 250%;
+}
+
+/* Flexbox Formatting for nav items */
+nav ul {
+  display: flex;
+  justify-content: space-between;
+  min-width: 300px;
+}
+
+/* Nav Item format */
+nav a {
+  color: #b9C6ae;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+/* Pseudo class to change nav links when hover */
+nav a:hover {
+  color: #fff;
+}
+
+/* Sets main content to flex box style that will grow and shrink main content space*/
+/* Sets max width to control paragraph formatting */
+main {
+  display: flex;
+  flex: 1 1 0;
+  max-width: 1200px;
+  margin: 2% auto;
+}
+
+/* Makes a bottom border that looks like a break line */
+article {
+  border-bottom: 1px solid #d8a47f;
+}
+
+article p {
+  margin: 2% 0;
+  font-size: 110%;
+}
+
+article ul {
+  margin-left: 5%;
+  font-size: 110%;
+  list-style: circle;
+}
+
+/* Sets interactive form's max-width */
+form {
+  max-width: 400px;
+}
+
+/* Form's header font size */
+form h3 {
+  font-size: 150%;
+}
+
+/* Margin Spacing between Form elements */
+form p {
+  margin: 3% 0;
+}
+
+/* Displays labels in block with form elements */
+label {
+  display: block;
+}
+
+
+button {
+  padding: 1% 2%;
+  color: #fff;
+  background-color: #13293d;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+
+/* What does this CSS rule do? */
+/* sets button appearance to browser style and formats the arrow icon */
+select {
+  /* moz mozilla firefox */
+  -moz-appearance: none;
+  /* chrome browsers */
+  -webkit-appearance: none;
+  appearance: none;
+  background-image: url("../images/arrow.png");
+  /* keeps small image from repeating to fill background */
+  background-repeat: no-repeat;
+  /* Postitions image to the right of box */
+  background-position: right;
+  /* sizes image to fit into box */
+  background-size: contain;
+}
+
+.text-input {
+  width: 100%;
+  max-width: 100%;
+}
+
+.text-input, select {
+  padding: 1%;
+  outline: none;
+  border: 1.2px solid #b9C6ae;
+}
+
+.text-input:hover, .checkbox:hover, 
+select:hover, button:hover {
+  box-shadow: 0 0 5px #999;
+}
+
+/* What does this pseudo-class mean? */
+/* When interacting with text input, border right*/
+.text-input:focus {
+  border-right-width: 5px;
+}
+
+/* What does this pseudo-class mean? */
+/* Selects any .text-input class that has a placeholder displayed */
+/* will dictate border type when field is not entered by user */
+.text-input:placeholder-shown {
+  border-style: dashed;
+}
+
+.flex-row {
+  display: flex;
+  align-items: center;
+}
+
+.flex-row select {
+  flex: 1 0 0;
+  margin-left: 2%;
+}
+
+.flex-row input {
+  margin-right: 2%;
+}
+
+/* What does this selector do? */
+/* This changes the label after the box is checked */
+/* this is linked through the for="" in the label and id="" in the input */
+.checkbox:checked + label {
+  color: #999999;
+  font-style: italic;
+}
+
+/* What does this selector do? */
+/* This creates a pseudo element that displays content after the label */
+/* plus sign is for sibblings immediately next to each other in the html */
+.checkbox:checked + label::after {
+  margin-left: 10px;
+  font-size: 90%;
+  content: "(thanks!)";
+}
+
+footer {
+  display: flex;
+  justify-content: center;
+  padding: 2%;
+  background-color: #13293d;
+  color: #fff;
+}
+
+@media screen and (max-width: 768px) {
+  header {
+    flex-direction: column;
+  }
+}

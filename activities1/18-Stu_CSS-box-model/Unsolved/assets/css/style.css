@@ -1,0 +1,23 @@
+section {
+  width: 600px;
+  height: 600px;
+  text-align: center;
+  border: 15px solid black;
+  margin: 0 auto;
+}
+
+img {
+  width: 200px;
+  height: 200px;
+  background-color: lightblue;
+
+   /* Sets all sides to 20px */
+   margin: 20px;
+
+  /* Sets padding on all sides to 20px */
+  padding: 20px;
+
+
+  /* Sets all sides to 20px */
+    border: 8px solid darkblue;
+}

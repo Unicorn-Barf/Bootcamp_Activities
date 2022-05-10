@@ -1,0 +1,35 @@
+.lesson {
+    width: 200px;
+    height: 100px;
+  }
+  
+.section-blue {
+  /* sets backgroung color */
+  background-color: blue;
+  /* sets text color */
+  color: orange;
+
+}
+  
+.container {
+  /* set background color */
+  background-color: black;
+    /* sets text color white */
+    color: white;
+
+}
+
+
+#section-1 {
+/* sets backround color */
+background-color: purple;
+/*  sets text color */
+color: yellow;
+
+}
+
+#section-6 {
+  /* sets text color */
+  color: yellow;
+
+}

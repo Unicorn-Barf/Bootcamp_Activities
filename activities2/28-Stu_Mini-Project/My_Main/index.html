@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./assets/reset.css">
+  <link rel="stylesheet" href="./assets.style.css">
+
+  <title>Document</title>
+</head>
+
+
+<body>
+
+    <!-- Main site header and description -->
+    <header>
+        <h1>CSS Snippet Cheatsheet</h1>
+        <p>My quick reference site for commonly needed code references!</p>
+    </header>
+
+
+    <main>
+        
+        <!-- First row of Main Content -->
+        <section class="main-style">
+
+        <!-- div container for snippets with a header, paragraph, and code snippet -->
+            <div>
+                <h2>Flexbox Row</h2>
+                <p>Use these three properties to create a flexbox row layout.</p>
+                <pre class="language-css"><code>.row {
+                    display: flex;
+                    flex-direction: row;
+                    flex-wrap: wrap;
+                }</code></pre>
+            </div>
+            <div>
+                <h2>Flexbox Column</h2>
+                <p>Use this to create a Flexbox column layout.</p>
+                <pre class="language-css"><code>.column {
+                    display: flex;
+                flex-direction: column;
+                }</code></pre>
+            </div>
+            <div>
+                <h2>CSS Grid Layout</h2>
+                <p>Build a 12-column layout using CSS Grid.</p>
+                <pre class="language-css"><code>.grid {
+                    display: grid;
+                    width: 100%;
+                    grid-template-columns: repeat(12, 1fr);
+                }</code></pre>
+            </div>
+            <div>
+                <h2>Gradients</h2>
+                <p>This will create a background linear gradient from top to bottom.</p>
+                <pre class="language-css"><code>.linear-gradient-background {
+                    background-image: linear-
+                    gradient(
+                        rgba(232, 102,236, 0.3) 0%,
+                        rgba(232, 102 236, 0.6) 100%
+                        );
+                }</code>
+                </pre>
+            </div>
+            <div>
+                <h2>Box Transition Glow</h2>
+                <p>Use transition and box shadows to glow on hover.</p>
+                <pre class="language-css"><code>.code-card .card-header {
+                    border-radius: 8px;
+                    transition: all 0.5s ease-in-
+                    out;
+                }</code>
+                </pre>
+            </div>
+            <div>
+                <h2>Overlay Card with Title</h2>
+                <p>Use position properties and negative margins to raise elements higher than
+                    their natural starting point.
+                </p>
+                <pre class="language-css"><code>.card-header {
+                    position: relative;
+                    margin-top: -20px;
+                }</code>
+                </pre>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- This is a footer section -->
+    <footer>
+        <!-- Cute footer message -->
+        <h3>Made with <span id="heart"></span> by Nolan</h3>
+    </footer>
+
+</body>
+</html>

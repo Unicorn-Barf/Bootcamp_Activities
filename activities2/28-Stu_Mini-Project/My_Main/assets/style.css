@@ -1,0 +1,45 @@
+
+/* Declaring variables for color and font */
+:root {
+    /* declare a variable with `--` syntax */
+    --dark: #c5006c;
+    --light: #cacaca;
+    --background-color: #20312e;
+    --page-font: Georgia, serif;
+  }
+
+  /* set the default for all elements */
+  * {
+      font-family: var(--page-font);
+  }
+
+  /* Flexbox Column all body elements */
+  body {
+    display: flex;
+    flex-direction: column;
+    background-color: var(--background-color);
+  }
+
+  /* Align header section */
+  header {
+      text-align: center;
+  }
+
+  /* Set font color to h1 */
+  h1 {
+      color: var(--dark);
+  }
+
+  header>p {
+      color: var(--light);
+  }
+
+  div {
+      box-sizing: border-box;
+  }
+
+  /* Sets main content to flex-wrap the div sections */
+  .main-style {
+      display: flex;
+      flex-direction: column;
+  }
