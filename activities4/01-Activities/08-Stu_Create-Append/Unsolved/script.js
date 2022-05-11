@@ -1,3 +1,9 @@
+var faveFood = [];
+for (i=0; i<4; i++){
+    faveFood[i] = prompt("Enter a favorite food", "favorite food");
+}
+console.log(faveFood);
+
 var body = document.body;
 var h1El = document.createElement("h1");
 var infoEl = document.createElement("div");
@@ -26,7 +32,7 @@ infoEl.appendChild(nameEl);
 body.appendChild(favoriteEl);
 favoriteEl.appendChild(listEl);
 // Append ordered list 
-favoriteEl.appendChild(listEl);
+listEl.append(li1, li2, li3, li4);
 
 h1El.setAttribute("style", "margin:auto; width:50%; text-align:center;");
 infoEl.setAttribute("style", "margin:auto; width:50%; text-align:center;");
@@ -36,3 +42,13 @@ kittenEl.setAttribute("style", "font-size:25px; text-align:center;");
 favoriteEl.setAttribute("style", "font-size:20px;");
 
 // TODO: Add ordered list items containing four favorite foods
+listEl.setAttribute("style", "background-color: #333333; padding: 20px; ")
+
+li1.textContent = faveFood[0];
+li1.setAttribute("style", "background-color: red; color: white; padding: 5px; margin-left: 35px;");
+li2.textContent = faveFood[1];
+li2.setAttribute("style", "background-color: blue; color: white; padding: 5px; margin-left: 35px;");
+li3.textContent = faveFood[2];
+li3.setAttribute("style", "background-color: pink; color: white; padding: 5px; margin-left: 35px;");
+li4.textContent = faveFood[3];
+li4.setAttribute("style", "background-color: yellow; color: white; padding: 5px; margin-left: 35px;");
