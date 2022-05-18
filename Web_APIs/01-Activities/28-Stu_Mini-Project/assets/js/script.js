@@ -1,42 +1,51 @@
 var startButton = document.querySelector("#start-button");
 var instructions = document.querySelector("#instructions");
 var container = document.querySelector("#container");
-var wordArr = ["Saxophone","Eloquent","Tuxedo","Homophone"];
-var timeLeft
-var word;
+var timeLeft;
+var myWord;
 var check;
 var winCount = 0;
 var lossCount = 0;
 
 
-// Convert Array items to uppercase only
-for (i=0; i<wordArr.length; i++) {
-    wordArr[i] = wordArr[i].toUpperCase();
+
+// Function to fetch random word from API
+function fetchWord() {
+    // fetch random words from API
+    let word = fetch('https://random-word-api.herokuapp.com/word')
+    .then(response => response.json())
+    .then(data => data[0].toUpperCase());
+
+    // wait for asynchronous function
+    const randWord = () => {
+        word.then((a) => {
+           myWord = a;
+        });
+      };
+      randWord();
 }
 
-console.log(wordArr);
+
 
 // This function initializes the game
 function gameInit() {
-    // Remove button
+
+    // Remove start button
     startButton.style.display = "none";
+
     // creates instructions paragraph
     instructions.textContent = "Press a key to guess a letter.  Wrong guesses will subtract 10 seconds!";
-    // select a random word from the array
-    let rand = Math.random();
-    let index = Math.round(rand * (wordArr.length - 1));
-    word = wordArr[index];
+
     // Create div elements with each letter in div container
-    for (i=0; i<word.length; i++) {
+    for (i=0; i<myWord.length; i++) {
         const h2 = document.createElement("h2");
         h2.setAttribute("data-index", i);
-        h2.setAttribute("data-letter", word[i]);
+        h2.setAttribute("data-letter", myWord[i]);
         h2.setAttribute("id", "letter")
         h2.style.borderBottom = "thick solid #000000";
         // appends the h2 element in container
         container.appendChild(h2);
     }
-
 }
 
 // Timer function
@@ -45,15 +54,14 @@ function timer() {
     const timerEl = document.createElement("h1");
     document.body.appendChild(timerEl);
     var timeInterval = setInterval(function () {
-        timeLeft--;
 
-        if (timeLeft > 0 && check !== word){
+        if (timeLeft > 0 && check !== myWord){
             timerEl.textContent = `${timeLeft} seconds left.`;
             timeLeft--;
         }
         
         // winning case
-        else if (check === word) {
+        else if (check === myWord) {
             // update win count and display
             winCount++;
             document.getElementById("win-span").textContent = winCount;
@@ -87,8 +95,10 @@ function timer() {
             for (i=0; i<h2El.length; i++) {
                 h2El[i].remove();
             }
-            // delete instructions text content
-            instructions.textContent = '';
+            // delete instructions text content and display word
+            instructions.textContent = `The word was ${myWord}`;
+            // generate new word
+            fetchWord();
         }
     },1000);
 }
@@ -100,9 +110,9 @@ startButton.addEventListener("click", function(event) {
     // make sure the start button is target of event with if statement
     var element = event.target;
     if (element.matches("button") === true) {
-        // call function to start game
-        timer();
+        // Call functions to initialize game and timer
         gameInit();
+        timer();
     }
 })
 
@@ -111,21 +121,24 @@ addEventListener("keydown", function(keypress) {
     let guess = keypress.key.toUpperCase();
     check = '';
     // Check if the guess is in the word string
-    if (word.includes(guess)) {
+    if (myWord.includes(guess)) {
 
         // This checks each h2 letter data to see which ones are a match
-        for (i=0; i<word.length; i++) {
+        for (i=0; i<myWord.length; i++) {
             let h2El = document.querySelector("#container").children[i];
             if (h2El.dataset.letter === guess) {
                 h2El.textContent = h2El.dataset.letter;
-                console.log(h2El);
             }
             check = check + h2El.textContent;
+            console.log(check);
         }
     }
     // subtracts time for wrong guess
     else {
-        timeLeft = timeLeft - 10;
+        timeLeft -= 5;
     }
     
 });
+
+// fetch word on page load
+fetchWord();

@@ -17,12 +17,23 @@ titleEl.addClass('p-5');
 
 // titleEl.style.border = "rgb(122, 242, 242) 3px solid";
 titleEl.css('border', 'rgb(122, 242, 242) 5px solid');
+// more than one property
+// titleEl.css({
+//   border: 'rgb(122, 242, 242) 5px solid',
+//   margin : '90px',
+// })
 
 // rootEl.appendChild(titleEl);
 rootEl.append(titleEl);
 
 // titleEl.append("Welcome to jQuery");
 rootEl.append('<h2>With jQuery we can:</h2>');
+
+// more than one at once
+// rootEl.append(titleEl, '<h2>With jQuery we can:</h2>');
+
+// prepend instead of append
+// prepend(titleEl);
 
 var abilities = [
   'Select',
@@ -35,7 +46,7 @@ var abilities = [
 ];
 
 for (var i = 0; i < abilities.length; i++) {
-  // Create a new `<div>` for each ability and its text content
+  // Create a new `<li>` for each ability and its text content
   var abilityEl = $('<li>');
 
   // abilityEl.textContent = abilities[i];
@@ -45,7 +56,7 @@ for (var i = 0; i < abilities.length; i++) {
   abilityEl.addClass('my-3');
 
   // Alternatively
-  // var abilityEl = $("<div>" + abilities[i] + "</div>");
+  // var abilityEl = $("<div class='my-3'>" + abilities[i] + "</div>");
 
   // Add this new `<div>` to the abilities `<div>` container element.
   rootEl.append(abilityEl);
@@ -58,4 +69,9 @@ console.log($('div'));
 // Alternatively use the `$.each` method
 // $.each(abilities, function(i, ability) {
 //    abilityEl.append("<div>" + ability + "</div>");
+// })
+
+// another way as above
+// abilities.forEach(ability => {
+//   abilityEl.append("<div>" + ability + "</div>");
 // })
