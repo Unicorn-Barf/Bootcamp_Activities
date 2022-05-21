@@ -66,3 +66,9 @@ $(function () {
 
 // Add interaction here
 //
+$(function () {
+  skillsListEl.sortable()({
+    placeholder: "sortable-placeholder"
+  });
+  skillsListEl.disableSelect();
+});

@@ -1,3 +1,4 @@
+
 // Comments show the vanilla JavaScript equivalent statements
 
 // var rootEl = document.getElementById("root");
