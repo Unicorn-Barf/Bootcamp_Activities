@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" 
+    rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+    crossorigin="anonymous">
+    <link rel="stylesheet" href="./assets/css/jquery.css">
+    <title>Project Tracker</title>
+</head>
+<body class="m-5">
+    <!-- Bootstrap Jumbotron -->
+    <div class="mt-4 p-5 bg-primary text-white rounded">
+        <h1>World's Best Project Tracker</h1>
+        <p id="day-date"></p>
+      </div>
+
+      <!-- Bootstrap card -->
+      <div class="card" style="width: 18rem;">
+        <div class="card-body">
+          <h5 class="card-title">Add a Project</h5>
+          <p class="card-text">Track a new project by clicking below and entering the project data.</p>
+          <a href="#" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#form-modal">Add Project</a>
+        </div>
+      </div>
+
+      <!-- bootstrap input modal -->
+      <div id="form-modal" class="modal" tabindex="-1">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title">Project Form</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <form class="row" id="project-form">
+                <label class="col-12" for="project-name">Enter the name of the project:</label>
+                <input class="col-12" type="text" id="project-name" required minlength="1">
+                <label class="col-12" for="project-type">Select project type:</label>
+                <select class="col-12" type="text" name="project-type" id="project-type" required>
+                  <option value="work">Work</option>
+                  <option value="play">Play</option>
+                  <option value="portfolio">Portfolio</option>
+                  <option value="charity">Charity</option>
+                </select>
+                <label class="col-12" for="project-wage">Enter hourly wage:</label>
+                <input class="col-12" type="number" id="project-wage" required minlength="1">
+                <label for="date" class="col-sm-4 col-form-label">Date: </label>
+                <div class="col-12">
+                  <input type="text" id="project-date" required>
+                </div>
+              </form>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+              <button type="button" id="submit-button" class="btn btn-primary">Save changes</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- bootstrap table -->
+      <table class="table-info col-12">
+        <thead>
+          <tr>
+            <th scope="col" class="col-3">Project Name</th>
+            <th scope="col" class="col-2">Type</th>
+            <th scope="col" class="col-1">Wage</th>
+            <th scope="col" class="col-1">Due Date</th>
+            <th scope="col" class="col-2">Days Until Due</th>
+            <th scope="col" class="col-3">Estimated Total Earned</th>
+          </tr>
+        </thead>
+        <tbody id="table-body">
+
+        </tbody>
+      </table>
+    
+    <!-- bootstrap -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <!-- jQuery -->
+    <script
+    src="https://code.jquery.com/jquery-3.6.0.min.js"
+     integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+     crossorigin="anonymous"></script>
+     <!-- JQuery UI -->
+     <script
+  src="https://code.jquery.com/ui/1.13.1/jquery-ui.min.js"
+  integrity="sha256-eTyxS0rkjpLEo16uXTS0uVCS4815lc40K2iVpWDvdSY="
+  crossorigin="anonymous"></script>
+     <!-- moment js -->
+     <script
+     type="text/javascript"
+     src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.27.0/moment.min.js"
+   ></script>
+   <script src="./assets/js/script.js"></script>
+</body>
+</html>

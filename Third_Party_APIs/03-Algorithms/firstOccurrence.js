@@ -1,12 +1,18 @@
-function firstOccurrence(string) {
+var myString = "what a wonderful day it has been!";
+
+let firstOccurrence = string => {
     for (i=0; i<string.length; i++) {
         const character = string[i];
-        if (i === string.lastIndexOf(character));
-        console.log(`"${character}" is the first occurring character that appears once in the string.`)
-        break;
+        if (string.lastIndexOf(character) === string.indexOf(character)) {
+            console.log(`"${character}" is the first occurring character that appears once in the string.`)
+            break;
+        }
     };
 };
 
+console.log(firstOccurrence("what a wonderful day it has been!"));
+console.log(firstOccurrence("this hat is the greatest!"));
+console.log(firstOccurrence("the quick brown fox jumps over the calm kitten quietly"));
 
 // 
 // //
@@ -53,6 +59,7 @@ function firstOccurrence(string) {
 // //	LOOP THROUGH STRING
 // 	for (let i = 0; i < string.length; i++) {
 // 		const currentLetter = string[i];
+//         console.log(charCount);
 // 		//			check if current letter in string is in charCount
 // 		if (charCount[currentLetter]) {
 // 			charCount[currentLetter]++;
@@ -62,14 +69,14 @@ function firstOccurrence(string) {
 // //	   if so, increment the value of that letter in charCount
 // //	      else set the value of that letter to 1 in charCount
 // 	}
-// 	for (const currentLetter in charCount) {
-// 		if (charCount[currentLetter] === 1) {
-// 			return currentLetter;
+// 	for (const i in charCount) {
+// 		if (charCount[i] === 1) {
+// 			return i;
 // 		}
 // 	}
 // }
 // console.log(firstNonRepeatCharHashMap("hello world"));
-// //
-// // 	Ex:
-// // Input: "the quick brown fox jumps over the calm kitten quietly"
-// //  Output: "b"
+//
+// 	Ex:
+// Input: "the quick brown fox jumps over the calm kitten quietly"
+//  Output: "b"
