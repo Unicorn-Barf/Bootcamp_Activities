@@ -45,12 +45,30 @@ function printProject (name, type, wage, pDate) {
     // calculate wages earned based on 8 hour workdays
     let money = Math.round(((moment(pDate) - moment()) / (1000*60*60*24))) * wage;
     // create and append table rows
+
+    // this doesn't work
+    // let tdEl = $('<td>');
+    // tdEl.text(name);
+    // trEl.append(tdEl);
+    // tdEl.text(type);
+    // trEl.append(tdEl);
+    // tdEl.text(wage);
+    // trEl.append(tdEl);
+    // tdEl.text(pDate);
+    // trEl.append(tdEl);
+    // tdEl.text(daysLeft);
+    // trEl.append(tdEl);
+    // tdEl.text(money);
+    // trEl.append(tdEl);
+
+    // this works
     trEl.append($('<td>').append(name));
     trEl.append($('<td>').append(type));
     trEl.append($('<td>').append(`$${wage}`));
     trEl.append($('<td>').append(pDate));
     trEl.append($('<td>').append(daysLeft));
     trEl.append($('<td>').append(`$${money}`));
+
     trEl.append($("<td>").append('<button type="button" id="delete-button" class="btn btn-danger">Delete</button>'));
 
     // append to table body
