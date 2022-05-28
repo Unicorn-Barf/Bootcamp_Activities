@@ -9,7 +9,7 @@ function duplicate (arr) {
 }
 
 // most efficient way learn maps!!!!
-// create a hashmap that lets me know whetehr a number has already appeared or not
+// create a hashmap that lets me know whether a number has already appeared or not
 const findDup = arrayOfNums => {
     const numMap = {};
     for (let i = 0; i < arrayOfNums.length; i++) {
