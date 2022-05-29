@@ -1,17 +1,4 @@
-function searchLibrary(search, searchType) {
-    // create fetch URL from parameters
-    let requestUrl = `https://www.loc.gov/${searchType}/?q=${search}&fo=json`;
-    fetch(requestUrl)
-        .then(function (response) {
-            return response.json();
-        })
-        .then(function (data) {
-            console.log(data)
-            for (i=0; i<data.results.length; i++) {
-                
-            }
-        })
-    }
+
 
 // search button eventlistener
 $("#btn-search").on("click", function(event) {
@@ -21,6 +8,7 @@ $("#btn-search").on("click", function(event) {
     console.log(search, searchType);
     // set input fields back to empty string
     $("#search-bar").val('');
-    $("#select-type").val('');
-    searchLibrary(search, searchType);
+    localStorage.setItem("search", JSON.stringify(search));
+    localStorage.setItem("search-type", JSON.stringify(searchType));
+    window.location = './results.html';
 });
