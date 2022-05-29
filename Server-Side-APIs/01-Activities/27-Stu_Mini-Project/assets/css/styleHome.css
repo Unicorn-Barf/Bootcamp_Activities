@@ -1,0 +1,16 @@
+body {
+    background-color: rgb(48, 61, 101);
+}
+/* form formatting */
+#form {
+    padding: 20px;
+    border-radius: 20px;
+    position: relative;
+    bottom: 45%;
+    border: 3px solid whitesmoke;
+    background-color: rgb(177, 217, 216);
+}
+
+#form h1 {
+    text-align: center;
+}
