@@ -9,6 +9,7 @@ var createGreeting = (message, name) => {
 };
 
 // If the arrow function body contains only one expression, we can omit the curly braces and auto return it
+// This is an implicit return
 var createGreeting = (message, name) => message + ", " + name + "!";
 
 // If an arrow function only has one parameter, we can omit the parens () around the single parameter

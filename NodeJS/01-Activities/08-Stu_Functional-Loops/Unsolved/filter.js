@@ -23,7 +23,8 @@ const isPrime = num => {
 };
 
 
-// TODO: Describe how filter is working in this example. What will the value of primeArray be? 
+// TODO: Describe how filter is working in this example. What will the value of primeArray be?
+// It will return only numbers that are divisible by 1 and themselves
 const primeArray = originalArray.filter(isPrime);
 
 

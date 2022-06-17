@@ -17,6 +17,8 @@ person.saySomething(); // prints "Hodor is thinking..."
 
 // Arrow functions bind the `this` keyword to the object it's created inside of
 // i.e. whatever `this` is where it's created
+// Arrow functions use a lexical this
+// Whatever the value of this is when/where the arrow function was created, this will inherit that this
 var person = {
   name: "Hodor",
   saySomething: function() {
