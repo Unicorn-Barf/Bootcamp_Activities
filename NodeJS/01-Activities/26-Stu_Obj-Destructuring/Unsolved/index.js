@@ -5,6 +5,7 @@ const nodejs = {
 };
 
 // TODO: Destructure the object 'nodejs'
+const {pkgName, type} = nodejs;
 
 console.log(pkgName); // <= Node.js
 console.log(type); // <= JavaScript runtime environment
@@ -27,7 +28,7 @@ const js = {
 };
 
 // TODO: Destructure the nested object 'js'
-
+const {tools: {frameworks: {framework1, framework2}}} = js;
 console.log(framework1); // <= AngularJS
 console.log(framework2); // <= Vue.js
 
@@ -35,6 +36,9 @@ console.log(framework2); // <= Vue.js
 const languages = ['HTML', 'CSS', 'JavaScript'];
 
 // TODO: Destructure the array 'languages'
+const [markup, style, scripting] = languages;
 
 console.log(markup, style, scripting); // <= HTML CSS JavaScript
 console.log(markup); // <= HTML
+
+
