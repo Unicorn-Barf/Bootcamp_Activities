@@ -7,6 +7,7 @@ describe("DayCare", () => {
       const dayCare = new DayCare();
 
       // TODO: Add a comment describing the purpose of the following statement
+      // Checking the initialization of a new DayCare instance
       expect(dayCare).toEqual({ children: [], capacity: 3, ageLimit: 6 });
     });
   });
@@ -14,14 +15,18 @@ describe("DayCare", () => {
   describe("addChild", () => {
     it("should add a child to the 'children' array", () => {
       // TODO: Add a comment describing the purpose of the following declarations
+      // creating new instances of a Child and DayCare object
       const child = new Child("Tammy", 1);
       const dayCare = new DayCare();
 
       // TODO: Add a comment describing the purpose of the following method
+      // using .addChile with the new Child object to simulate adding child
       dayCare.addChild(child);
 
       // TODO: Add a comment describing the purpose of the following statements
+      // Expecting a new child object to be store in dayCare.children
       expect(dayCare.children.length).toEqual(1);
+      // Expecting that object to be the child constant
       expect(dayCare.children[0]).toBe(child);
     });
 
@@ -32,6 +37,7 @@ describe("DayCare", () => {
       dayCare.addChild(child);
 
       // TODO: Add a comment describing the purpose of the following statement
+      // Expecting that Tammy is too old and shouldn't be added to the dayCare object using .addChild(child)
       expect(dayCare.children.length).toEqual(0);
     });
 
@@ -40,6 +46,7 @@ describe("DayCare", () => {
       const child = new Child("Alice", 4);
 
       // TODO: Add a comment describing the purpose of the following expression
+      // Creating an array of new child object instances inside dayCare object under .children
       dayCare.children = [
         new Child("Tammy", 1),
         new Child("Mark", 2),
@@ -49,22 +56,26 @@ describe("DayCare", () => {
       dayCare.addChild(child);
 
       // TODO: Add a comment describing the purpose of the following statement
+      // expects that 3 are the max ammount of children per daycare and .addChild() won't allow more that 3
       expect(dayCare.children.length).toEqual(3);
     });
 
     it("should throw an error if not provided a Child object as an argument", () => {
       // TODO: Add a comment describing the purpose of the following declaration
+      // Storing expected new Error in a const
       const err = new Error(
         "Expected parameter 'child' to be an instance of Child"
       );
 
       // TODO: Add a comment describing the purpose of the following expression
+      // cb fn to create new DayCare instance and use .addChild() with no parameter
       const cb = () => {
         const dayCare = new DayCare();
         dayCare.addChild();
       };
 
       // TODO: Add a comment describing the purpose of the following statement
+      // Expecting cb func to throw new error equal to err
       expect(cb).toThrowError(err);
     });
   });
@@ -78,12 +89,14 @@ describe("DayCare", () => {
       dayCare.children = [child1, child2, child3];
 
       // TODO: Add a comment describing the purpose of the following declaration
+      // storing the .pickupChild() name data
       const removed = dayCare.pickupChild(child2.name);
 
       expect(removed).toBe(child2);
       expect(dayCare.children.length).toEqual(2);
 
       // TODO: Add a comment describing the purpose of the following statement
+      // Expects that the child was removed
       expect(
         dayCare.children.some(child => child.name === child2.name)
       ).toEqual(false);
