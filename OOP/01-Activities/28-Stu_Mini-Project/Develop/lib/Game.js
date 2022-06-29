@@ -20,7 +20,7 @@ class Game {
   nextWord() {
     const randWord = words[Math.floor(Math.random() * words.length)];
     this.currentWord = new Word(randWord);
-    console.log("\n" + this.currentWord.toString() + "\n");
+    console.log("\n" + this.currentWord.letters.toString() + "\n");
     this.makeGuess();
   }
 
@@ -94,7 +94,7 @@ class Game {
           console.log(this.guessesLeft + " guesses remaining!!!\n");
         }
 
-        console.log(this.currentWord.toString() + "\n");
+        console.log(this.currentWord.letters.toString() + "\n");
       });
   }
 
