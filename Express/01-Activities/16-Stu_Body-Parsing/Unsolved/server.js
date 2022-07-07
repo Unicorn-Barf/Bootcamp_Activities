@@ -8,6 +8,8 @@ const app = express();
 // TODO: Implement middleware for the parsing of JSON data
 
 // TODO: Implement middleware for parsing of URL encoded data
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
 // GET request for ALL reviews
 app.get('/api/reviews', (req, res) => {
@@ -18,7 +20,20 @@ app.get('/api/reviews', (req, res) => {
   return res.status(200).json(reviews);
 });
 
+// query parameters
+// req.query to get query parameters
+// /api/reviews?manny=isCool&isHungry=no&vogue=thehousedown
+
 // GET request for a single review
+// When you see a colon, it's a wildcard, so put specific routes before wildcard routes
+// Make sure that your API's are secure... catch errors
+/*
+* You should only respond once per API request
+* the return statement below ensures that
+* the API only responds once
+*  If you get an error "Can't set headers after they are sent to the client"
+* it means in that api request, you are responding to the client more than once
+*/
 app.get('/api/reviews/:review_id', (req, res) => {
   if (req.params.review_id) {
     console.info(`${req.method} request received to get a single a review`);
