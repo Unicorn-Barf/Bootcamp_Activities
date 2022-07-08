@@ -44,11 +44,17 @@ app.post('/api/reviews', (req, res) => {
       review_id: uuid(),
     };
 
-    // Convert the data to a string so we can save it
-    const reviewString = JSON.stringify(newReview);
+    const reviews = JSON.parse(fs.readFileSync(path.join(__dirname, "db", "reviews.json"), "utf8", (err, data) => {
+        if (err) {
+          return res.status(500).json(err);
+        }
+        else return data;
+      }));
+    
+    reviews.push(newReview);
 
     // Write the string to a file
-    fs.writeFile(`./db/reviews.json`, reviewString, (err) =>
+    fs.writeFile(`./db/reviews.json`, JSON.stringify(reviewString), (err) =>
       err
         ? console.error(err)
         : console.log(
