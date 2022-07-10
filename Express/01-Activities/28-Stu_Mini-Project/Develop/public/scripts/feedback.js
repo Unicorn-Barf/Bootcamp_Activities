@@ -26,7 +26,7 @@ if (feedbackForm) {
       };
 
       // Fetch POST request to the server
-      fetch('api/feedback', {
+      fetch('/api/feedback', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
