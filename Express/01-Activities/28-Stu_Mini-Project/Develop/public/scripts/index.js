@@ -128,6 +128,22 @@ const submitDiagnostics = (submissionObj) => {
     '⚠️ Create the logic for the fetch POST request in scripts/index.js'
   );
   alert('Add your logic to scripts/index.js');
+  
+  fetch('/api/diagnostics', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(submissionObj),
+  })
+    .then((response) => response.json())
+    .then((data) => {
+      alert(data);
+    })
+    .catch((error) => {
+      console.error('Error:', error);
+    });
+
 };
 
 // Function to handle when a user submits the feedback form
@@ -152,7 +168,7 @@ const handleFormSubmit = (e) => {
   const submission = validateTip(newTip);
 
   // If the submission is valid, post the tip. Otherwise, handle the errors.
-  return submission.isValid ? postTip(newTip) : submitDiagnostics(submission);
+  return submission.isValid ? postTip(newTip) : submitDiagnostics(submission.errors);
 };
 
 // Listen for when the form is submitted
