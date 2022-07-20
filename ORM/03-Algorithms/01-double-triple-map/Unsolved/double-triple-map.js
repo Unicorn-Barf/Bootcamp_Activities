@@ -2,4 +2,9 @@
 // If a element in the original array is even, the element at the same index in the new array should be double the original element
 // If an element in the original array is odd, the element at the same index of the new array should be triple the original element
 
-var doubleTripleMap = function(arr) {};
+var doubleTripleMap = function(arr) {
+    return arr.map(num => {
+        if (num % 2 === 0) return num * 2;
+        else return num * 3;
+    });
+};
