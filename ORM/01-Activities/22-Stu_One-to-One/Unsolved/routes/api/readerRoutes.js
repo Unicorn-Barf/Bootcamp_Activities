@@ -6,6 +6,9 @@ router.get('/', async (req, res) => {
   try {
     const readerData = await Reader.findAll({
       // TODO: Add a comment describing the functionality of this property
+      // Joins each reader with the library card table
+      // The name of the column when this join happens
+      // will be the modelName perperty of the model we specify in each model object
       include: [{ model: LibraryCard }],
     });
     res.status(200).json(readerData);
