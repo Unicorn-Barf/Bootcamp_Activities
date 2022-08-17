@@ -1,3 +1,7 @@
+// Functional Programming - we use functions instead of classes
+
+
+
 // Create a function which will hold another function.
 function bankAccount() {
   // Create two variables inside of the outer function.

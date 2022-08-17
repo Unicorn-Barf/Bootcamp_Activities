@@ -11,3 +11,23 @@ class Lesson {
 
 const csForJS = new Lesson();
 csForJS.information();
+
+
+
+
+
+const tellMe = (state) => ({
+  information: () => console.log(state.title, state.description),
+});
+
+const lessonFactory = (title, description) => {
+  const state = {
+    title,
+    description,
+  };
+
+  return { ...tellMe(state) };
+};
+
+const myInfo = lessonFactory('Werk', 'Death Drops 101');
+myInfo.information();

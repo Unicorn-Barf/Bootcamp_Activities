@@ -1,3 +1,8 @@
+// Higher order functions = functions that can call other functions
+// Normally these funct that are being called are areguments know as "callback functions"
+
+// Other languages call higher order functions/callback functions as lambda functions
+
 const arrayIndex = [1, 52, 35, 6, 72, 7, 3, 19, 32, 54, 78, 95, 97];
 
 // Create a function which accepts two arguments, number and index.
