@@ -13,3 +13,4 @@ Step 5. Else if the given array's middle index less than the given element, star
 Step 6. Else update the end index to the middle index minus one.
 
 Step 7. After exiting the loop return false because given element was not found.
+
