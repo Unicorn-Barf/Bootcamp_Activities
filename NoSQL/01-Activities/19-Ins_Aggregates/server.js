@@ -15,6 +15,13 @@ app.get('/sum-price', (req, res) => {
     [
       // Where prices are less or equal to 5
       { $match: { price: { $lte: 5 } } },
+      // Once match is hit
+      // imagine that we already have access to the data from the match statement
+
+      // in any stage except $match we can access the actual data in the fields
+      // using "variables" in the aggregation pipeline
+      // and the way that we do that is we pass a string with $nameOfField
+      // and that will give us the value per document for that field
       {
         $group: {
           // Group by null (no additional grouping by id)

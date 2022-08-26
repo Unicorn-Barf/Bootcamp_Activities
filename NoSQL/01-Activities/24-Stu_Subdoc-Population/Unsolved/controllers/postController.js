@@ -2,7 +2,7 @@ const { Post } = require('../models');
 
 module.exports = {
   getPosts(req, res) {
-    Post.find()
+    Post.find().populate('tags')
       .then((posts) => res.json(posts))
       .catch((err) => {
         console.error({ message: err });
@@ -10,7 +10,7 @@ module.exports = {
       });
   },
   getSinglePost(req, res) {
-    Post.findOne({ _id: req.params.postId })
+    Post.findOne({ _id: req.params.postId }).populate('tags')
       .then((post) =>
         !post
           ? res.status(404).json({ message: 'No post with that ID' })

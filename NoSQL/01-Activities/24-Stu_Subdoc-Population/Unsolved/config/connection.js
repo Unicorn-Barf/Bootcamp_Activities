@@ -1,6 +1,6 @@
 const { connect, connection } = require('mongoose');
 
-connect('mongodb://localhost/postsTags', {
+connect(`mongodb+srv://unicorn:3825myPian0!@cluster0.f16ya0q.mongodb.net/aggregateDB3?retryWrites=true&w=majority`, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 });
