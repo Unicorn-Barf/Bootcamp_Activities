@@ -9,3 +9,9 @@ document.getElementById('headerBtn').addEventListener('click', headerClick);
 document.getElementById('box').src = Yellow;
 
 //TODO: Add logic for Hot Module Reloading
+
+if (module.hot) {
+    module.hot.accept((err) => {
+        console.log('Cannot apply the changes!');
+    });
+};

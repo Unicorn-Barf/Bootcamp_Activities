@@ -10,6 +10,10 @@ module.exports = {
     path: path.resolve(__dirname, 'dist'),
   },
   // TODO: Add devServer object
+  devServer: {
+    hot: 'only',
+    port: 3000,
+  },
   plugins: [
     new HtmlWebpackPlugin({
       template: './index.html',

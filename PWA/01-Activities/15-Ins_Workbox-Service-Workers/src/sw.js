@@ -44,7 +44,7 @@ self.addEventListener('activate', (e) => {
   e.waitUntil(clients.claim());
 });
 
-// Example of a simple cache-first network-first strategy
+// Example of a simple cache-first network-second strategy
 // The service worker is checking the cache for a response and if it doesn't find it, it fetches it.
 self.addEventListener('fetch', (e) =>
   e.respondWith(caches.match(e.request).then((res) => res || fetch(e.request)))
