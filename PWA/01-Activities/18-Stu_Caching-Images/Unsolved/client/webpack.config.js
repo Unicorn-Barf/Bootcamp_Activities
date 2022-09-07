@@ -19,7 +19,21 @@ module.exports = {
     }),
     new MiniCssExtractPlugin(),
     // TODO: Add parameters to GenerateSW class to configure runtime caching
-    new WorkboxPlugin.GenerateSW()
+    new WorkboxPlugin.GenerateSW({
+      exclude: [/\.(?:png|jpg|jpeg|svg)$/],
+      runtimeCaching: [
+        {
+          urlPattern: /\.(?:png|jpg|jpeg|svg)$/,
+          handler: 'CacheFirst',
+          options: {
+            cashName: 'images',
+            expirations: {
+              maxEntries: 2
+            }
+          }
+        }
+      ]
+    })
   ],
   module: {
     rules: [
