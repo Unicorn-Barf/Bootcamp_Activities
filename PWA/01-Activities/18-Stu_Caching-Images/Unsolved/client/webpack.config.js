@@ -23,14 +23,15 @@ module.exports = {
       exclude: [/\.(?:png|jpg|jpeg|svg)$/],
       runtimeCaching: [
         {
-          urlPattern: /\.(?:png|jpg|jpeg|svg)$/,
+          // Routing via a RegExp:
+          urlPattern:  /\.(?:png|jpg|jpeg|svg)$/,
           handler: 'CacheFirst',
           options: {
-            cashName: 'images',
-            expirations: {
+            cacheName: 'images',
+            expiration: {
               maxEntries: 2
             }
-          }
+          },
         }
       ]
     })

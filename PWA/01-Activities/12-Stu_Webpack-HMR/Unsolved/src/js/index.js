@@ -12,6 +12,6 @@ document.getElementById('box').src = Yellow;
 
 if (module.hot) {
     module.hot.accept((err) => {
-        console.log('Cannot apply the changes!');
+        if (err) console.log('Cannot apply the changes!');
     });
 };

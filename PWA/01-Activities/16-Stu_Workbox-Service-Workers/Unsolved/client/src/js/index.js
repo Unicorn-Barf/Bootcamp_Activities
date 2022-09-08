@@ -9,3 +9,9 @@ document.getElementById('headerBtn').addEventListener('click', headerClick);
 document.getElementById('box').src = Yellow;
 
 // TODO: Add logic to register service worker. The logic can be added as a new module and imported or added directly in this file.
+// register a service worker
+if ('serviceWorker' in navigator) {
+    navigator.serviceWorker
+      .register('./service-worker.js')
+      .then((register) => console.log(register));
+  }

@@ -8,4 +8,4 @@ document.getElementById('boxBtn').addEventListener('click', boxClick);
 document.getElementById('headerBtn').addEventListener('click', headerClick);
 
 // TODO: Set src of #box element to Yellow
-document.getElementById('box').src = Yellow;
+document.getElementById('box').src = Yellow ;
