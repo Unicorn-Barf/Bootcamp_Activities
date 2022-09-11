@@ -2,6 +2,16 @@ import React, { useState } from 'react';
 import BucketForm from './BucketForm';
 import Bucket from './Bucket';
 
+/*
+item = {
+  id: num,
+  isCompleted: boolean,
+  text: string,
+  eagerness: string
+}
+
+*/
+
 function BucketList() {
   const [bucket, setBucket] = useState([]);
 
@@ -9,6 +19,8 @@ function BucketList() {
   const addBucketItem = (item) => {
 
     // TODO: Write logic to add the new bucket item to the bucket state variable
+    const newBucketArr = bucket;
+    setBucket(newBucketArr.push(item));
     
   };
 
@@ -18,6 +30,10 @@ function BucketList() {
     let updatedBucket = bucket.map((item) => {
       
       // TODO: Write logic that marks an item as complete or incomplete when invoked
+      if (item.id === id) {
+        item.isCompleted = true;
+      };
+      return item;
 
     });
 
@@ -27,15 +43,16 @@ function BucketList() {
   // Function to remove bucket list item and update state
   const removeBucketItem = (id) => {
     // TODO: Write logic that will return an array of items that don't contain the ID passed to this function
-
+    let updatedBucket = bucket.filter(item => item.id !== id);
 
     // TODO: Update the bucket state variable
+    setBucket(updatedBucket);
   };
 
   // Function to edit the bucket list item
   const editBucketItem = (itemId, newValue) => {
     // Make sure that the value isn't empty
-    if (!newValue.text) {
+    if (!newValue.value) {
       return;
     }
 

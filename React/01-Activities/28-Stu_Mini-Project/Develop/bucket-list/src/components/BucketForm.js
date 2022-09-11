@@ -7,6 +7,22 @@ function BucketForm(props) {
   // TODO: Use this array in the return statement below
   const eagernessLevel = ['high', 'medium', 'low']
 
+  const handleEagerness = (e) => {
+    switch (e.target.textContent) {
+      case 'Must do':
+        setEagerness(eagernessLevel[0]);
+        break;
+      case 'Want to do':
+        setEagerness(eagernessLevel[1]);
+        break;
+      case 'Take it or leave it':
+        setEagerness(eagernessLevel[2]);
+        break;
+      default:
+        break;
+    }
+  }
+
   const handleSubmit = (e) => {
     e.preventDefault();
 
@@ -47,9 +63,9 @@ function BucketForm(props) {
           </button>
           <div className="dropdown-content">
             {/* TODO: Add an onClick event that will set the corresponding eagerness level from the `eagernessLevel` array */}
-            <p onClick={}>Must do</p>
-            <p onClick={}>Want to do</p>
-            <p onClick={}>Take it or leave it</p>
+            <p onClick={handleEagerness}>Must do</p>
+            <p onClick={handleEagerness}>Want to do</p>
+            <p onClick={handleEagerness}>Take it or leave it</p>
           </div>
         </div>
         <button className="bucket-button">Add bucket list item</button>
@@ -73,9 +89,9 @@ function BucketForm(props) {
           </button>
           <div className="dropdown-content">
             {/* TODO: Add an onClick event that will set the corresponding eagerness level from the `eagernessLevel` array */}
-            <p onClick={}>Must do</p>
-            <p onClick={}>Want to do</p>
-            <p onClick={}>Take it or leave it</p>
+            <p onClick={handleEagerness}>Must do</p>
+            <p onClick={handleEagerness}>Want to do</p>
+            <p onClick={handleEagerness}>Take it or leave it</p>
           </div>
         </div>
         <button className="bucket-button">Update</button>
