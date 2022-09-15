@@ -19,9 +19,9 @@ function BucketList() {
   const addBucketItem = (item) => {
 
     // TODO: Write logic to add the new bucket item to the bucket state variable
-    const newBucketArr = bucket;
-    setBucket(newBucketArr.push(item));
-    
+    if (!item.text) return;
+    const newBucketArr = [item, ...bucket];
+    setBucket(newBucketArr);
   };
 
   // Function to mark bucket list item as complete
@@ -31,19 +31,17 @@ function BucketList() {
       
       // TODO: Write logic that marks an item as complete or incomplete when invoked
       if (item.id === id) {
-        item.isCompleted = true;
+        item.isComplete = !item.isComplete;
       };
       return item;
-
     });
-
     setBucket(updatedBucket);
   };
 
   // Function to remove bucket list item and update state
   const removeBucketItem = (id) => {
     // TODO: Write logic that will return an array of items that don't contain the ID passed to this function
-    let updatedBucket = bucket.filter(item => item.id !== id);
+    let updatedBucket = [...bucket].filter(item => item.id !== id);
 
     // TODO: Update the bucket state variable
     setBucket(updatedBucket);

@@ -58,7 +58,7 @@ function BucketForm(props) {
           onChange={handleChange}
         ></input>
         <div className="dropdown">
-          <button className={`dropbtn ${eagerness}`}>
+          <button className={`dropbtn ${eagerness}` } type="button">
             {eagerness || 'Priority'}
           </button>
           <div className="dropdown-content">
@@ -84,7 +84,7 @@ function BucketForm(props) {
           onChange={handleChange}
         ></input>
         <div className="dropdown">
-          <button className={`dropbtn ${eagerness}`}>
+          <button className={`dropbtn ${eagerness}`} type="button">
             {eagerness || 'Priority'}
           </button>
           <div className="dropdown-content">
