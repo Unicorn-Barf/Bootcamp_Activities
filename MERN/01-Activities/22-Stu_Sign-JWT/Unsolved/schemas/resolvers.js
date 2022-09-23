@@ -22,26 +22,33 @@ const resolvers = {
   Mutation: {
     // TODO: Add comments to each line of code below to describe the functionality below
     addUser: async (parent, args) => {
+      // First we creaste a new user
       const user = await User.create(args);
+      // We use our signToken function to create a token for the new user
+      // This uses Jason Web Token to create an encoded token
       const token = signToken(user);
-
+      // Returns the token and the new User to the the front end
       return { token, user };
     },
     // TODO: Add comments to each line of code below to describe the functionality below
+    // Login mutation
     login: async (parent, { email, password }) => {
+      // Finding a user by email
       const user = await User.findOne({ email });
-
+      // Checks to see if user exists, throws error if not (apollo server auth err)
       if (!user) {
         throw new AuthenticationError('Incorrect credentials');
       }
 
+      // Uses the user instance method to check password with bcrypt
       const correctPw = await user.isCorrectPassword(password);
-
+      // Throws error if pass is not correct
       if (!correctPw) {
         throw new AuthenticationError('Incorrect credentials');
       }
-
+      // Creates a token with this user to log them in
       const token = signToken(user);
+      // Returns the token and the user to the front end
       return { token, user };
     },
     addThought: async (parent, { thoughtText, thoughtAuthor }) => {

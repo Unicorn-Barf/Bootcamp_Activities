@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useMutation } from '@apollo/client';
+import { useNavigate, useHistory } from 'react-router-dom';
 
 import { ADD_PROFILE } from '../../utils/mutations';
 import { QUERY_PROFILES } from '../../utils/queries';
@@ -20,6 +21,9 @@ const ProfileForm = () => {
         console.error(e);
       }
     },
+    // onCompleted: (data) => {
+    //   useNavigate(`/profiles/${data.addProfile._id}`)
+    // }
   });
 
   const handleFormSubmit = async (event) => {

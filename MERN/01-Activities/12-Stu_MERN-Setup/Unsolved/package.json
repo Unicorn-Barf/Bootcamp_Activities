@@ -4,10 +4,16 @@
   "description": "",
   "main": "server/server.js",
   "scripts": {
+    // Start just start the backend server
     "start": "node server/server.js",
+    // Runs backend and front end concurrently
     "develop": "concurrently \"cd server && npm run watch\" \"cd client && npm start\"",
+    // After root level npm i, calls this install script
+    // cd's into the frontend and backend to run npm i
     "install": "cd server && npm i && cd ../client && npm i",
+    // Seeds the database
     "seed": "cd server && npm run seed",
+    // Cd's into client to run the build script, 
     "build": "cd client && npm run build"
   },
   "keywords": [],
