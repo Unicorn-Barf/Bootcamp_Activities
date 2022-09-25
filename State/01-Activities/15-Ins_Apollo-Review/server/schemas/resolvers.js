@@ -7,7 +7,7 @@ const resolvers = {
     },
 
     profile: async (parent, { profileId }) => {
-      return Profile.findOne({ _id: profileId });
+      return Profile.findById(profileId);
     },
   },
 

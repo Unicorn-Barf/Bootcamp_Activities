@@ -8,6 +8,9 @@ function App() {
   const [issues, setIssues] = useState([]);
 
   // When the page loads, set the document title to something specific to this app. Runs once because of optional dependency array
+  // Takes two arguments
+  // 1 a function to call when page loads
+  // 2 an array of any value that you want to make trigger useEffect function to run again
   useEffect(() => {
     document.title = 'React Hooks Review';
   }, []);

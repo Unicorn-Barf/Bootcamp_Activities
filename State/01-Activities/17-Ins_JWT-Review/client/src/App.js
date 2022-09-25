@@ -15,10 +15,13 @@ import Login from './pages/Login';
 import Header from './components/Header';
 import Footer from './components/Footer';
 
+// Next lines is code to make it so that every single graphql query/mutation
+// will automatically set a header called 'authorization' with the toke from localStorage as the value
 const httpLink = createHttpLink({
   uri: '/graphql',
 });
 
+// config for the pipeline
 const authLink = setContext((_, { headers }) => {
   // get the authentication token from local storage if it exists
   const token = localStorage.getItem('id_token');
@@ -31,7 +34,11 @@ const authLink = setContext((_, { headers }) => {
   };
 });
 
+// creates the pipeline
 const client = new ApolloClient({
+  // before the request gets sent to our graphql server
+  // authlink will set the header for authorization if there's a token
+  // then httpLink will forward the request to the endpoint
   link: authLink.concat(httpLink),
   cache: new InMemoryCache(),
 });

@@ -13,6 +13,7 @@ class AuthService {
   isTokenExpired(token) {
     const decoded = decode(token);
     if (decoded.exp < Date.now() / 1000) {
+      // good place to get a refresh token if current token is expired
       localStorage.removeItem('id_token');
       return true;
     }

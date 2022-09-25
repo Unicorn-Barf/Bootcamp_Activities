@@ -11,6 +11,11 @@ const app = express();
 const server = new ApolloServer({
   typeDefs,
   resolvers,
+  // The function passed to the context object
+  // is going to get called in every single query or mutation
+  // whatever this function return (normally we return an object)
+  // return value will be available in every query/mutation
+  // as the 3rd argument, 'context
   context: authMiddleware,
 });
 

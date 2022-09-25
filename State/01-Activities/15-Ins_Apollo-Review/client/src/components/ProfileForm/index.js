@@ -8,7 +8,7 @@ const ProfileForm = () => {
   const [name, setName] = useState('');
 
   // Invoke `useMutation()` hook to return a Promise-based function and data about the ADD_PROFILE mutation
-  const [addProfile, { error }] = useMutation(ADD_PROFILE);
+  const [addProfile, { error, data, loading }] = useMutation(ADD_PROFILE);
 
   const handleFormSubmit = async (event) => {
     event.preventDefault();
